@@ -38,7 +38,7 @@ class CardItemValueWidget extends StatelessWidget {
         maxLines: maxLines ?? 1,
         minFontSize: 12,
         overflow: TextOverflow.ellipsis,
-        style: AppTextStyles.body15w4.copyWith(color: AppColors.black1E),
+        style: AppTextStyles.body15w4.copyWith(color: AppColors.black),
       ),
     );
   }

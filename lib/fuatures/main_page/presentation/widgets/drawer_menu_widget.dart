@@ -30,7 +30,7 @@ class DrawerMenuWidget extends StatelessWidget {
                 padding: EdgeInsets.only(left: 25.w, right: 5.w),
                 child: SvgPicture.asset(
                   icons,
-                  color: selected ? AppColors.white : AppColors.unSelDrawText,
+                  color: selected ? AppColors.white : AppColors.grey,
                 ),
               ),
               Expanded(
@@ -44,7 +44,7 @@ class DrawerMenuWidget extends StatelessWidget {
                       style: AppTextStyles.body18w7.copyWith(
                         color: selected
                             ? AppColors.white
-                            : AppColors.unSelDrawText,
+                            : AppColors.blue,
                       ),
                     ),
                   ),
@@ -54,11 +54,11 @@ class DrawerMenuWidget extends StatelessWidget {
               Container(
                   height: 60  .h,
                   width: 20.w,
-                  color: selected ? AppColors.accentBlue : AppColors.blue)
+                  color: selected ? AppColors.blue : AppColors.blue)
             ],
           ),
           Divider(
-            color: AppColors.accentBlue,
+            color: AppColors.blue,
             height: 1.h,
           )
         ],
