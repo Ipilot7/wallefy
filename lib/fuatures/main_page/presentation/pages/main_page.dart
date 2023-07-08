@@ -1,23 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wallefy/common/app_colors.dart';
+import 'package:wallefy/common/locale_data.dart';
 
-// class MainPage extends StatefulWidget {
-//   const MainPage({super.key});
-
-//   @override
-//   State<MainPage> createState() => _MainPageState();
-// }
-
-// class _MainPageState extends State<MainPage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Scaffold(
-//       body: Center(
-//         child: Text('MainPage'),
-//       ),
-//       bottomNavigationBar: BottomAppBar(),
-//     );
-//   }
-// }
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -26,40 +11,61 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageDemoState extends State<MainPage> {
+  int selectedIndex = 0;
+  PageController controller = PageController();
+
+  nextPage(int index) {
+    selectedIndex = index;
+    controller.animateToPage(index,
+        duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: AppColors.backgroud,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          tooltip: 'Create',
+          tooltip: 'Add Income Outcome',
+          onPressed: () {
+            showModalBottomSheet(
+              backgroundColor: AppColors.red,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.r)),
+              context: context,
+              builder: (_) => Container(
+                height: MediaQuery.of(context).size.height,
+              ),
+            );
+          },
+          backgroundColor: AppColors.blue,
           child: const Icon(Icons.add),
+        ),
+        body: SafeArea(
+          child: PageView(
+            physics: const BouncingScrollPhysics(),
+            controller: controller,
+            children: pages,
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
-          color: Colors.blue,
-          child: IconTheme(
-            data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  tooltip: 'Open navigation menu',
-                  icon: const Icon(Icons.menu),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  tooltip: 'Search',
-                  icon: const Icon(Icons.search),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  tooltip: 'Favorite',
-                  icon: const Icon(Icons.favorite),
-                  onPressed: () {},
-                ),
-              ],
+          color: AppColors.unActiveButton,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: List.generate(
+              pages.length,
+              (index) => IconButton(
+                color:
+                    selectedIndex == index ? AppColors.blue2 : AppColors.grey,
+                tooltip: menuNames[index],
+                icon: bottomIcons[index],
+                onPressed: () {
+                  nextPage(index);
+                },
+              ),
             ),
           ),
         ),

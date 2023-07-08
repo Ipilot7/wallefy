@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 
-List floatListNames = [
-  'Doimiy chiqimlar',
-  "Doimiy chiqim qilish",
-  "Bir martalik chiqim qilish"
+List<String> menuNames = ['Home', 'Income outcome', 'Statistics', 'Tips'];
+List<Widget> bottomIcons = [
+  const Icon(Icons.menu),
+  const Icon(Icons.menu),
+  const Icon(Icons.menu),
+  const Icon(Icons.menu),
 ];
-List floatListIcons = [
-  Icons.menu,
-  Icons.add_circle_outline_sharp,
-  Icons.add_circle_outline_sharp,
+List<Widget> pages = [
+  const Center(
+    child: Text('Home'),
+  ),
+  const Center(
+    child: Text('Income outcome'),
+  ),
+  const Center(
+    child: Text('Statistics'),
+  ),
+  const Center(
+    child: Text('Tips'),
+  ),
 ];
