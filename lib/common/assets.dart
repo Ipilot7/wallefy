@@ -26,17 +26,63 @@ abstract class _AssetsHolder {
 class _Icons extends _AssetsHolder {
   const _Icons() : super('assets/icons');
 
-  String get logo => "$basePath/logo.png";
+  // String get logo => "$basePath/logo.png";
+  String get arrowBack => "$basePath/arrow_back.svg";
 
-  
+  String get addPerson => "$basePath/ic_add_person.svg";
+
+  String get add => "$basePath/ic_add.svg";
+
+  String get arrowRight => "$basePath/ic_arrow_right.svg";
+
+  String get calendar => "$basePath/ic_calendar.svg";
+
+  String get card => "$basePath/ic_card.svg";
+
+  String get home => "$basePath/ic_home.svg";
+
+  String get person => "$basePath/ic_person.svg";
+
+  String get share => "$basePath/ic_share.svg";
+
+  String get statistics => "$basePath/ic_statistics.svg";
+
+  String get tick => "$basePath/ic_tick.svg";
+
+  String get tips => "$basePath/ic_tips.svg";
+
+  String get addCards => "$basePath/ic_card.svg";
+
+  String get facebook => "$basePath/ic_facebook.svg";
+
+  String get profile => "$basePath/ic_profile.svg";
+
+  String get telegram => "$basePath/ic_telegram.svg";
+
+  String get viber => "$basePath/ic_viber.svg";
+
+  String get wallet => "$basePath/ic_wallet.svg";
+
+  String get like => "$basePath/ic_like.svg";
+
+  String get security => "$basePath/ic_security.svg";
+
+  String get arrowTop => "$basePath/arrow_top.svg";
+
+  String get arrowDown => "$basePath/arrow_down.svg";
 }
 
 class _Images extends _AssetsHolder {
   const _Images() : super('assets/images');
 
-  String get backgroudImage => "$basePath/background.png";
+  String get cardBackgroudImage => "$basePath/card_bg_img.png";
 
-  String get backgroudDesctopImage => "$basePath/background_desctop.png";
+  String get reach => "$basePath/img_reach.svg";
+
+  String get seeFinance => "$basePath/img_see_finance.svg";
+
+  String get takeFinance => "$basePath/img_take_finance.svg";
+
 }
 
 class _Lottie extends _AssetsHolder {

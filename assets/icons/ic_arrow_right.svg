@@ -1,0 +1,10 @@
+<svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ic-arrow" clip-path="url(#clip0_0_3065)">
+<path id="Arrow Right" fill-rule="evenodd" clip-rule="evenodd" d="M0.683542 12.3665C1.04504 12.7189 1.62162 12.7189 1.98313 12.3665L7.9306 6.56766C7.96864 6.53058 7.96864 6.46943 7.9306 6.43234L1.98313 0.633548C1.62163 0.281085 1.04504 0.281084 0.683542 0.633547V0.633547C0.308864 0.998858 0.308864 1.60114 0.683542 1.96645L5.33333 6.5L0.683542 11.0335C0.308864 11.3989 0.308864 12.0011 0.683542 12.3665V12.3665Z" fill="#555568"/>
+</g>
+<defs>
+<clipPath id="clip0_0_3065">
+<rect width="8" height="13" fill="white"/>
+</clipPath>
+</defs>
+</svg>

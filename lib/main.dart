@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/fuatures/main_page/presentation/pages/main_page.dart';
 import 'di/di.dart' as sl;
