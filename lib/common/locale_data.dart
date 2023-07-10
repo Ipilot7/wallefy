@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:wallefy/common/assets.dart';
+import 'package:wallefy/fuatures/home/presentation/pages/home.dart';
 
 List<String> menuNames = ['Home', 'Income outcome', 'Statistics', 'Tips'];
-List<Widget> bottomIcons = [
-  const Icon(Icons.menu),
-  const Icon(Icons.menu),
-  const Icon(Icons.menu),
-  const Icon(Icons.menu),
+List<String> bottomIcons = [
+  Assets.icons.home,
+  Assets.icons.card,
+  Assets.icons.statistics,
+  Assets.icons.tips,
 ];
 List<Widget> pages = [
-  const Center(
-    child: Text('Home'),
-  ),
+  const HomePage(),
   const Center(
     child: Text('Income outcome'),
   ),

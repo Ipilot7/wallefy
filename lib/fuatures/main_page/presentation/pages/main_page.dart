@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/locale_data.dart';
 
@@ -25,7 +26,6 @@ class _MainPageDemoState extends State<MainPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: AppColors.backgroud,
         floatingActionButton: FloatingActionButton(
           tooltip: 'Add Income Outcome',
           onPressed: () {
@@ -52,16 +52,16 @@ class _MainPageDemoState extends State<MainPage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
-          color: AppColors.unActiveButton,
+          color: AppColors.white.withOpacity(0.82),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
               pages.length,
               (index) => IconButton(
-                color:
-                    selectedIndex == index ? AppColors.blue2 : AppColors.grey,
                 tooltip: menuNames[index],
-                icon: bottomIcons[index],
+                icon: SvgPicture.asset(
+                    color: selectedIndex == index ? AppColors.blue2 : null,
+                    bottomIcons[index]),
                 onPressed: () {
                   nextPage(index);
                 },
