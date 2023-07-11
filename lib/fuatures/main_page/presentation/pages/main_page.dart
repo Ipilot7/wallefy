@@ -12,7 +12,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageDemoState extends State<MainPage> {
   int selectedIndex = 0;
-  PageController controller = PageController();
+  PageController controller = PageController(initialPage: 2);
 
   nextPage(int index) {
     selectedIndex = index;

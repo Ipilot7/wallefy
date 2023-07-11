@@ -185,6 +185,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  circular_seek_bar:
+    dependency: "direct main"
+    description:
+      name: circular_seek_bar
+      sha256: "78ff5e54b6012523f3ce19b33c870ab75433ea96977f44606f1641a8ac5c1873"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0+2"
   cli_util:
     dependency: transitive
     description:
@@ -305,6 +313,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  fl_chart:
+    dependency: "direct main"
+    description:
+      name: fl_chart
+      sha256: c1e26c7e48496be85104c16c040950b0436674cdf0737f3f6e95511b2529b592
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.63.0"
   floating_action_bubble:
     dependency: "direct main"
     description:
@@ -1046,5 +1062,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.0.0-0 <4.0.0"
+  dart: ">=3.0.0 <4.0.0"
   flutter: ">=3.7.0-0"
