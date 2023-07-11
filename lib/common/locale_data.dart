@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:wallefy/fuatures/statistics/precentation/pages/statistics_page.dart';
+import 'package:wallefy/common/assets.dart';
+import 'package:wallefy/fuatures/home/presentation/pages/home.dart';
+import 'package:wallefy/fuatures/profile/presentation/pages/profile.dart';
 
-import '../fuatures/statistics/precentation/widgets/custom_line_chart.dart';
-
-List<String> menuNames = ['Home', 'Income outcome', 'Statistics', 'Tips'];
-List<Widget> bottomIcons = [
-  const Icon(Icons.menu),
-  const Icon(Icons.menu),
-  const Icon(Icons.menu),
-  const Icon(Icons.menu),
+List<String> menuNames = ['Home', 'Statistics', 'Tips', 'Profile'];
+List<String> bottomIcons = [
+  Assets.icons.home,
+  Assets.icons.statistics,
+  Assets.icons.tips,
+  Assets.icons.userIcon,
 ];
 List<Widget> pages = [
+  const HomePage(),
   const Center(
-    child: Text('Home'),
+    child: Text('Statistics'),
   ),
-  const Center(
-    child: Text('Income outcome'),
-  ),
-  StatisticsPage(),
-  
   const Center(
     child: Text('Tips'),
   ),
+  ProfilePage()
 ];
 
 

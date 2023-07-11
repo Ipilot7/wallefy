@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
           themeMode: ThemeMode.system,
           theme: ThemeData(
+            scaffoldBackgroundColor: AppColors.backgroud,
             scrollbarTheme: ScrollbarThemeData(
               thickness: MaterialStateProperty.all(5.w),
               radius: Radius.circular(3.r),
