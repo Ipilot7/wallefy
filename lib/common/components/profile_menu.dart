@@ -11,6 +11,7 @@ class ProfileMenu extends StatelessWidget {
     this.onTap,
     required this.leading,
     this.trailing,
+    this.disableDivider = false,
     this.toRight = false,
     this.contentPadding,
   });
@@ -20,6 +21,7 @@ class ProfileMenu extends StatelessWidget {
   final String? trailing;
   final bool? toRight;
   final EdgeInsetsGeometry? contentPadding;
+  final bool? disableDivider;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class ProfileMenu extends StatelessWidget {
             ],
           ),
         ),
-        const Divider()
+        disableDivider == true ? const SizedBox() : const Divider()
       ],
     );
   }

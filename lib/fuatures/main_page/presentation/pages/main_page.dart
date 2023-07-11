@@ -44,7 +44,7 @@ class _MainPageDemoState extends State<MainPage> {
         ),
         body: SafeArea(
           child: PageView(
-            physics: const BouncingScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             controller: controller,
             children: pages,
           ),
