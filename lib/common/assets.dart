@@ -72,6 +72,8 @@ class _Icons extends _AssetsHolder {
   String get arrowDown => "$basePath/arrow_down.svg";
 
   String get userIcon => "$basePath/user.svg";
+
+  String get camera => "$basePath/camera.svg";
 }
 
 class _Images extends _AssetsHolder {
@@ -84,6 +86,8 @@ class _Images extends _AssetsHolder {
   String get seeFinance => "$basePath/img_see_finance.svg";
 
   String get takeFinance => "$basePath/img_take_finance.svg";
+
+  String get defUser => "$basePath/ic_users.png";
 }
 
 class _Lottie extends _AssetsHolder {
