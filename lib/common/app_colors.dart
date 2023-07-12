@@ -8,7 +8,7 @@ class AppColors {
   static Color blue2 = const Color(0xff0D0E56);
   static Color blue3 = const Color(0xff007AFF);
   static Color grey = const Color(0xff7B7C98);
-  static Color gridTextColor = const Color(0xff7B7C98);
+  static Color gridTextColor = const Color(0xffB9BACE);
   static const Color red = Color(0xffF33720);
   static Color unActiveButton = const Color(0xffB1B1BE);
   static Color green = const Color(0xff00BEA1);

@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../common/app_text_style.dart';
 
-
 class CustomProgressIndicator extends StatelessWidget {
   const CustomProgressIndicator({
     super.key,
@@ -13,44 +12,36 @@ class CustomProgressIndicator extends StatelessWidget {
     required this.name,
   });
   final Color color;
-  final int value;
+  final double value;
   final String name;
 
   @override
   Widget build(BuildContext context) {
-    return CircularSeekBar(
-      width: 90.h,
-      height: 75.h,
-      progress: value.toDouble(),
-      barWidth: 5,
-      startAngle: 60,
-      sweepAngle: 240,
-      maxProgress: 100,
-      trackColor: color.withOpacity(.21),
-      progressColor: color,
-      animation: true,
-      interactive: false,
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              value.toString(),
-              style: AppTextStyles.body24w6.copyWith(
-                color: color,
-              ),
-            ),
-            Text(
+    return Column(
+      children: [
+        CircularSeekBar(
+          width: 90.h,
+          height: 75.h,
+          progress: value.toDouble(),
+          barWidth: 5,
+          startAngle: 45,
+          sweepAngle: 270,
+          maxProgress: 100,
+          trackColor: color.withOpacity(.21),
+          progressColor: color,
+          animation: true,
+          interactive: false,
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
               name,
-              style: AppTextStyles.body10w6.copyWith(
+              style: AppTextStyles.body24w4.copyWith(
                 color: color,
               ),
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

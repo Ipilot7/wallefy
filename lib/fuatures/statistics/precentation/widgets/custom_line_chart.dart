@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../common/app_colors.dart';
 import '../../../../common/app_text_style.dart';
@@ -10,7 +11,8 @@ class CustomLineChart extends StatefulWidget {
     required this.listCoordinates,
     this.height,
     this.width,
-    this.colorBorder,
+    this.colorBorder1,
+    this.colorBorder2,
     this.borderWidth,
     this.bgGrid,
     this.showLongPress,
@@ -20,7 +22,8 @@ class CustomLineChart extends StatefulWidget {
   List<Coordinate> listCoordinates;
   double? height;
   double? width;
-  Color? colorBorder;
+  Color? colorBorder1;
+  Color? colorBorder2;
   double? borderWidth;
   bool? bgGrid;
   bool? showLongPress;
@@ -67,14 +70,14 @@ class _CustomLineChartState extends State<CustomLineChart> {
           drawVerticalLine: false,
           getDrawingHorizontalLine: (value) {
             return FlLine(
-              color: const Color(0xff37434d),
+              color: AppColors.gridTextColor,
               strokeWidth: 1,
             );
           },
         ),
         titlesData: FlTitlesData(
           show: widget.bgGrid ?? false,
-          rightTitles: AxisTitles(
+          rightTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
           leftTitles: AxisTitles(
@@ -82,7 +85,7 @@ class _CustomLineChartState extends State<CustomLineChart> {
               showTitles: true,
               interval: 70,
               getTitlesWidget: leftTitleWidgets,
-              reservedSize: 40,
+              reservedSize: 50,
             ),
           ),
           bottomTitles: AxisTitles(
@@ -91,14 +94,14 @@ class _CustomLineChartState extends State<CustomLineChart> {
               getTitlesWidget: bottomTitleWidgets,
             ),
           ),
-          topTitles: AxisTitles(
+          topTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
         ),
         borderData: FlBorderData(
           show: false,
           border: Border.all(
-            color: const Color(0xff37434d),
+            color: AppColors.gridTextColor,
           ),
         ),
         minX: 0,
@@ -120,8 +123,9 @@ class _CustomLineChartState extends State<CustomLineChart> {
                 );
               },
             ),
-            color: widget.colorBorder ?? Colors.white,
+            color: widget.colorBorder1 ?? Colors.white,
             isCurved: true,
+
             // isStrokeCapRound: true,
             barWidth: widget.borderWidth ?? 1.2,
             dotData: const FlDotData(
@@ -129,8 +133,6 @@ class _CustomLineChartState extends State<CustomLineChart> {
             ),
           ),
           LineChartBarData(
-            // lin
-
             spots: List.generate(
               widget.listCoordinates.length,
               (index) {
@@ -143,7 +145,7 @@ class _CustomLineChartState extends State<CustomLineChart> {
                 );
               },
             ),
-            color: widget.colorBorder ?? Colors.white,
+            color: widget.colorBorder2 ?? Colors.white,
             isCurved: true,
             // isStrokeCapRound: true,
             barWidth: widget.borderWidth ?? 1.2,
@@ -157,7 +159,8 @@ class _CustomLineChartState extends State<CustomLineChart> {
   }
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
-    TextStyle style = AppTextStyles.body12w6.copyWith(color: AppColors.grey);
+    TextStyle style =
+        AppTextStyles.body12w6.copyWith(color: AppColors.gridTextColor);
     String text;
     switch (value.toInt()) {
       case 0:
@@ -189,7 +192,8 @@ class _CustomLineChartState extends State<CustomLineChart> {
   }
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
-    TextStyle style = AppTextStyles.body12w6.copyWith(color: AppColors.grey);
+    TextStyle style =
+        AppTextStyles.body12w6.copyWith(color: AppColors.gridTextColor);
     String text;
     switch (value.toInt()) {
       case 0:
@@ -212,7 +216,9 @@ class _CustomLineChartState extends State<CustomLineChart> {
         return Container();
     }
 
-    return Text(text, style: style, textAlign: TextAlign.right);
+    return Padding(
+        padding: EdgeInsets.only(right: 10.w),
+        child: Text(text, style: style, textAlign: TextAlign.right));
   }
 }
 

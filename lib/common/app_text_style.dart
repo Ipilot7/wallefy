@@ -70,6 +70,12 @@ abstract class AppTextStyles {
       fontSize: 30.sp,
       color: AppColors.black);
 
+  static TextStyle head12w6 = TextStyle(
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w600,
+      fontStyle: FontStyle.normal,
+      fontSize: 12.sp,
+      color: AppColors.black);
   static TextStyle head12wB = TextStyle(
       fontFamily: fontFamily,
       fontWeight: FontWeight.bold,
