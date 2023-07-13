@@ -12,6 +12,8 @@ class AppColors {
   static const Color red = Color(0xffF33720);
   static Color unActiveButton = const Color(0xffB1B1BE);
   static Color green = const Color(0xff00BEA1);
+  static Color calendarRangeColor = const Color(0xffF0F2FD);
+  static Color grey2 = const Color(0xffD3CFEA);
 
 
 
