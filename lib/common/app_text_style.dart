@@ -396,6 +396,12 @@ abstract class AppTextStyles {
       fontStyle: FontStyle.normal,
       fontSize: 20.sp,
       color: AppColors.black);
+  static TextStyle body20w1 = TextStyle(
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w100,
+      fontStyle: FontStyle.normal,
+      fontSize: 20.sp,
+      color: AppColors.black);
 
   static TextStyle b5DemiBold = TextStyle(
       fontFamily: fontFamily,

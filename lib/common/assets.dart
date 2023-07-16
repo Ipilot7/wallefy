@@ -74,6 +74,14 @@ class _Icons extends _AssetsHolder {
   String get userIcon => "$basePath/user.svg";
 
   String get camera => "$basePath/camera.svg";
+
+  String get filter => "$basePath/filter.svg";
+
+  String get search => "$basePath/search.svg";
+
+  String get priority => "$basePath/priority.svg";
+
+  String get cancel => "$basePath/cancel.png";
 }
 
 class _Images extends _AssetsHolder {
@@ -88,6 +96,24 @@ class _Images extends _AssetsHolder {
   String get takeFinance => "$basePath/img_take_finance.svg";
 
   String get defUser => "$basePath/ic_users.png";
+
+  String get pizzaFood => "$basePath/pizza_food.png";
+
+  String get cash => "$basePath/cash.png";
+  
+  String get education => "$basePath/pizza_food.png";
+  
+  String get home => "$basePath/home.png";
+  
+  String get medicine => "$basePath/medicine.png";
+
+  String get shopping => "$basePath/shopping.png";
+
+  String get travelCar => "$basePath/travel_car.png";
+
+  String get gift => "$basePath/gift.png";
+
+  String get sport => "$basePath/sport.png";
 }
 
 class _Lottie extends _AssetsHolder {
