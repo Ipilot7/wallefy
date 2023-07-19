@@ -2,11 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wallefy/common/app_colors.dart';
-import 'package:wallefy/fuatures/home/presentation/pages/actions.dart';
-import 'package:wallefy/fuatures/home/presentation/widgets/bottom_sheet_widget.dart';
-import 'package:wallefy/fuatures/main_page/presentation/pages/main_page.dart';
+import 'package:wallefy/fuatures/add_operation/presentation/pages/currency_page.dart';
 import 'di/di.dart' as sl;
-import 'fuatures/home/presentation/pages/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +36,7 @@ class MyApp extends StatelessWidget {
               trackColor: MaterialStateProperty.all(AppColors.blue),
             ),
           ),
-          home: const HomePage()
+          home: const CurrencyPage()
           //  data != null ? const HomePage() : LoginPage.screen(),
           ),
     );

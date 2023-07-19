@@ -100,11 +100,11 @@ class _Images extends _AssetsHolder {
   String get pizzaFood => "$basePath/pizza_food.png";
 
   String get cash => "$basePath/cash.png";
-  
-  String get education => "$basePath/pizza_food.png";
-  
+
+  String get education => "$basePath/education.png";
+
   String get home => "$basePath/home.png";
-  
+
   String get medicine => "$basePath/medicine.png";
 
   String get shopping => "$basePath/shopping.png";
@@ -114,6 +114,10 @@ class _Images extends _AssetsHolder {
   String get gift => "$basePath/gift.png";
 
   String get sport => "$basePath/sport.png";
+
+  String get budget => "$basePath/budget.png";
+
+  String get japan => "$basePath/bitmap_japan.png";
 }
 
 class _Lottie extends _AssetsHolder {

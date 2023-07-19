@@ -60,6 +60,7 @@ class _MainPageDemoState extends State<MainPage> {
               (index) => IconButton(
                 tooltip: menuNames[index],
                 icon: SvgPicture.asset(
+                    // ignore: deprecated_member_use
                     color: selectedIndex == index ? AppColors.blue2 : null,
                     bottomIcons[index]),
                 onPressed: () {

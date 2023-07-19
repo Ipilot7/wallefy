@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,11 +6,9 @@ import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/app_text_style.dart';
 import 'package:wallefy/common/assets.dart';
 import 'package:wallefy/fuatures/home/data/data_sources/actions_local_data_source.dart';
-import 'package:wallefy/fuatures/home/data/models/home_actions.dart';
 import 'package:wallefy/fuatures/home/presentation/pages/actions.dart';
 import 'package:wallefy/fuatures/home/presentation/widgets/daily_limit_widget.dart';
 import 'package:wallefy/fuatures/home/presentation/widgets/home_actions_widget.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:wallefy/fuatures/home/presentation/widgets/home_indicator_percent.dart';
 
 class HomePage extends StatefulWidget {

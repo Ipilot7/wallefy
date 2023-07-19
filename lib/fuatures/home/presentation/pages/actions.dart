@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallefy/common/app_colors.dart';
@@ -80,6 +79,7 @@ class _ActionsPageState extends State<ActionsPage> {
                             currentColor: AppColors.blue2,
                             fontSize: 26.w,
                           ),
+                          // ignore: deprecated_member_use
                           color: const Color(0xff472FC8),
                           fit: BoxFit.scaleDown,
                         ),
@@ -125,6 +125,7 @@ class _ActionsPageState extends State<ActionsPage> {
                         width: 23.h,
                         height: 23.h,
                         fit: BoxFit.scaleDown,
+                        // ignore: deprecated_member_use
                         color: const Color(0xff0D0E56),
                       ),
                       contentPadding: EdgeInsets.zero,

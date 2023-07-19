@@ -45,6 +45,7 @@ class DailyLimit extends StatelessWidget {
                       Assets.icons.priority,
                       width: 5.w,
                       height: 22.w,
+                      // ignore: deprecated_member_use
                       color: const Color(0xffF33720),
                     ),
                     SizedBox(
