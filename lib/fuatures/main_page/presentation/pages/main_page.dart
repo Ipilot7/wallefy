@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/locale_data.dart';
 
+import '../../../add_operation/presentation/pages/add_main.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -30,14 +32,13 @@ class _MainPageDemoState extends State<MainPage> {
           tooltip: 'Add Income Outcome',
           onPressed: () {
             showModalBottomSheet(
-              backgroundColor: AppColors.red,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.r)),
-              context: context,
-              builder: (_) => Container(
-                height: MediaQuery.of(context).size.height,
-              ),
-            );
+                useSafeArea: true,
+                isScrollControlled: true,
+                backgroundColor: AppColors.red,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.r)),
+                context: context,
+                builder: (_) => const AddMainScreen());
           },
           backgroundColor: AppColors.blue,
           child: const Icon(Icons.add),

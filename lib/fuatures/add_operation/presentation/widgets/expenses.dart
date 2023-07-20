@@ -6,9 +6,15 @@ import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/widgets/expanses_income_elements_widget.dart';
 import 'package:wallefy/fuatures/home/data/data_sources/actions_local_data_source.dart';
 
-class ExpensesPage extends StatelessWidget {
+class ExpensesPage extends StatefulWidget {
   const ExpensesPage({super.key});
 
+  @override
+  State<ExpensesPage> createState() => _ExpensesPageState();
+}
+
+class _ExpensesPageState extends State<ExpensesPage> {
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -36,9 +42,17 @@ class ExpensesPage extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             if (index < actionsListMore.length) {
-              return ExpansesIncomeRow(
-                assetsText: actionsListMore[index].actionImage,
-                text: actionsListMore[index].actionTitle,
+              return InkWell(
+                onTap: () {
+                  setState(() {
+                    selectedIndex = index;
+                  });
+                },
+                child: ExpansesIncomeRow(
+                  onCheck: selectedIndex == index,
+                  assetsText: actionsListMore[index].actionImage,
+                  text: actionsListMore[index].actionTitle,
+                ),
               );
             } else {
               return const OtherElementsWidget();

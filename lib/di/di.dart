@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallefy/core/platform/network_info.dart';
 
 final di = GetIt.instance;
@@ -47,9 +46,9 @@ Future<void> init() async {
 
   /// Local cache
 
-  final SharedPreferences sharedPreferences =
-      await SharedPreferences.getInstance();
-  di.registerLazySingleton(() => sharedPreferences);
+  // final SharedPreferences sharedPreferences =
+  //     await SharedPreferences.getInstance();
+  // di.registerLazySingleton(() => sharedPreferences);
 
   // /// Local datasource
 

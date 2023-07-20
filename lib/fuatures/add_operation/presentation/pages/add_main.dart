@@ -5,11 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/app_text_style.dart';
 import 'package:wallefy/common/assets.dart';
+import 'package:wallefy/common/constants.dart';
 import 'package:wallefy/fuatures/add_operation/data/data_sources/expenses_income_models_list.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/pages/add_done.dart';
+import 'package:wallefy/fuatures/add_operation/presentation/widgets/add_main_expenses_incom.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/widgets/category_date_currency.dart';
-
-import '../widgets/add_main_expenses_incom.dart';
 
 class AddMainScreen extends StatefulWidget {
   const AddMainScreen({super.key});
@@ -24,190 +24,216 @@ class _AddMainScreenState extends State<AddMainScreen> {
   late String date;
   late String currency;
 
-  int onTap = 3;
+  int onTap = -1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroud,
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 45.h,
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Container(
-                padding: EdgeInsets.all(5.w),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                ),
-                child: Icon(Icons.close, color: AppColors.grey),
-              ),
-            ),
-            Image.asset(
-              Assets.images.budget,
-              width: 120.w,
-              height: 115.w,
-            ),
-            SizedBox(
-              height: 13.h,
-            ),
-            Text(
-              "Add operation ",
-              style: AppTextStyles.body20w7.copyWith(
-                color: AppColors.blue2,
-              ),
-            ),
-            SizedBox(
-              height: 21.h,
-            ),
-            Container(
-              height: 67.h,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "\$ 0,00",
-                    style: AppTextStyles.body21w6.copyWith(
-                      color: AppColors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 11.h,
-            ),
-            GridView.builder(
-              shrinkWrap: true,
-              itemCount: LocalDataSource().expensesIncomModelList.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 0.w,
-                crossAxisSpacing: 10.w,
-                childAspectRatio: 182.w / 92.w,
-              ),
-              itemBuilder: (context, index) {
-                return InkWell(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(20.r),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
                   onTap: () {
-                    if (onTap == index) {
-                    } else {
-                      setState(() {
-                        onTap = index;
-                      });
-                    }
+                    pop(context);
                   },
-                  child: AddMainExpensesIncomeWidget(
-                    assetsText: LocalDataSource().expensesIncomModelList[index].imageAssetsText,
-                    text: LocalDataSource().expensesIncomModelList[index].text,
-                    fillColor: colorFunc(index, onTap),
-                  ),
-                );
-              },
-            ),
-            // Row(
-            //   children: [
-            //     Expanded(
-            //       child: AddMainExpensesIncomeWidget(
-            //         assetsText: Assets.icons.arrowTop,
-            //         text: "Expenses",
-            //         fillColor: AppColors.red,
-            //       ),
-            //     ),
-            //     SizedBox(
-            //       width: 10.w,
-            //     ),
-            //     Expanded(
-            //       child: AddMainExpensesIncomeWidget(
-            //         assetsText: Assets.icons.arrowDown,
-            //         text: "Income",
-            //         fillColor: AppColors.green,
-            //       ),
-            //     ),
-            //   ],
-            // ),
-            SizedBox(
-              height: 11.h,
-            ),
-            const CategoryDateCurrencyWidget(),
-            SizedBox(
-              height: 11.h,
-            ),
-            Container(
-              alignment: Alignment.topLeft,
-              height: 112.h,
-              padding: EdgeInsets.symmetric(
-                horizontal: 15.w,
-              ),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(14.r),
-              ),
-              child: Expanded(
-                child: TextField(
-                  textAlign: TextAlign.start,
-                  style: AppTextStyles.body15w4.copyWith(
-                    color: const Color(0xffBABAD7),
-                  ),
-                  controller: controller,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Note",
-                    hintStyle: AppTextStyles.body15w4.copyWith(
-                      color: const Color(0xffBABAD7),
+                  child: Container(
+                    padding: EdgeInsets.all(5.w),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
                     ),
-                    contentPadding: EdgeInsets.zero,
+                    child: Icon(Icons.close, color: AppColors.grey),
                   ),
-                  minLines: 1,
-                  maxLines: 10,
                 ),
               ),
-            ),
-            SizedBox(
-              height: 31.h,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const AddDone();
-                    },
-                  ),
-                );
-              },
-              child: Container(
-                height: 60.h,
-                width: 374.w,
+              Image.asset(
+                Assets.images.budget,
+                width: 120.w,
+                height: 115.w,
+              ),
+              SizedBox(
+                height: 13.h,
+              ),
+              Text(
+                "Add operation ",
+                style: AppTextStyles.body20w7.copyWith(
+                  color: AppColors.blue2,
+                ),
+              ),
+              SizedBox(
+                height: 21.h,
+              ),
+              Container(
+                height: 67.h,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.r),
-                  color: AppColors.unActiveButton,
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
-                child: Text(
-                  "Add",
-                  style: AppTextStyles.body15w7.copyWith(
-                    color: AppColors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "\$ 0,00",
+                      style: AppTextStyles.body21w6.copyWith(
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 11.h,
+              ),
+              // GridView.builder(
+              //   shrinkWrap: true,
+              //   itemCount: LocalDataSource().expensesIncomModelList.length,
+              //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //     crossAxisCount: 2,
+              //     mainAxisSpacing: 0.w,
+              //     crossAxisSpacing: 10.w,
+              //     childAspectRatio: 182.w / 92.w,
+              //   ),
+              //   itemBuilder: (context, index) {
+              //     return InkWell(
+              //       onTap: () {
+              //         if (onTap == index) {
+              //         } else {
+              //           setState(() {
+              //             onTap = index;
+              //           });
+              //         }
+              //       },
+              //       child: AddMainExpensesIncomeWidget(
+              //         assetsText: LocalDataSource()
+              //             .expensesIncomModelList[index]
+              //             .imageAssetsText,
+              //         text:
+              //             LocalDataSource().expensesIncomModelList[index].text,
+              //         fillColor: colorFunc(index, onTap),
+              //       ),
+              //     );
+              //   },
+              // ),
+              // Row(
+              //   children: [
+              //     Expanded(
+              //       child: AddMainExpensesIncomeWidget(
+              //         assetsText: Assets.icons.arrowTop,
+              //         text: "Expenses",
+              //         fillColor: AppColors.red,
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 10.w,
+              //     ),
+              //     Expanded(
+              //       child: AddMainExpensesIncomeWidget(
+              //         assetsText: Assets.icons.arrowDown,
+              //         text: "Income",
+              //         fillColor: AppColors.green,
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(
+                  LocalDataSource.expensesIncomModelList.length,
+                  (index) => InkWell(
+                    onTap: () {
+                      onTap = index;
+                    },
+                    child: AddMainExpensesIncomeWidget(
+                      assetsText: LocalDataSource
+                          .expensesIncomModelList[index].imageAssetsText,
+                      text:
+                          LocalDataSource.expensesIncomModelList[index].text,
+                      fillColor: colorFunc(index, onTap),
+                    ),
+                  ),
+                  // LocalDataSource.expensesIncomModelList[index]
+                ),
+              ),
+              SizedBox(
+                height: 11.h,
+              ),
+              const CategoryDateCurrencyWidget(),
+              SizedBox(
+                height: 11.h,
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                height: 112.h,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15.w,
+                ),
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(14.r),
+                ),
+                child: Expanded(
+                  child: TextField(
+                    textAlign: TextAlign.start,
+                    style: AppTextStyles.body15w4.copyWith(
+                      color: const Color(0xffBABAD7),
+                    ),
+                    controller: controller,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Note",
+                      hintStyle: AppTextStyles.body15w4.copyWith(
+                        color: const Color(0xffBABAD7),
+                      ),
+                      contentPadding: EdgeInsets.zero,
+                    ),
+                    minLines: 1,
+                    maxLines: 10,
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 13.h,
-            ),
-          ],
+              SizedBox(
+                height: 31.h,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const AddDone();
+                      },
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 60.h,
+                  width: 374.w,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.r),
+                    color: AppColors.unActiveButton,
+                  ),
+                  child: Text(
+                    "Add",
+                    style: AppTextStyles.body15w7.copyWith(
+                      color: AppColors.white,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 13.h,
+              ),
+            ],
+          ),
         ),
       ),
     );

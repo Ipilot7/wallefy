@@ -21,11 +21,12 @@ class AddMainExpensesIncomeWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<AddMainExpensesIncomeWidget> createState() => _AddMainExpensesIncomeWidgetState();
+  State<AddMainExpensesIncomeWidget> createState() =>
+      _AddMainExpensesIncomeWidgetState();
 }
 
-class _AddMainExpensesIncomeWidgetState extends State<AddMainExpensesIncomeWidget> {
-  bool onTap = false;
+class _AddMainExpensesIncomeWidgetState
+    extends State<AddMainExpensesIncomeWidget> {
 
   @override
   Widget build(BuildContext context) {

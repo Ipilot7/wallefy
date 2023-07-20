@@ -53,7 +53,7 @@ class _CategoryPageState extends State<CategoryPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: () =>Navigator.pop(context),
+                  onTap: () => Navigator.pop(context),
                   child: SvgPicture.asset(
                     Assets.icons.arrowBack,
                   ),
@@ -76,7 +76,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   alignment: Alignment.topCenter,
                   children: [
                     PageView(
-                      scrollDirection: Axis.horizontal,
+                      physics: const NeverScrollableScrollPhysics(),
                       reverse: false,
                       controller: controller,
                       children: _pages,

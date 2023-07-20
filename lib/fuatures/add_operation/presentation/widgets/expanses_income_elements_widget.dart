@@ -5,7 +5,7 @@ import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/app_text_style.dart';
 
 // ignore: must_be_immutable
-class ExpansesIncomeRow extends StatefulWidget {
+class ExpansesIncomeRow extends StatelessWidget {
   bool onCheck;
   String assetsText;
   String text;
@@ -17,49 +17,27 @@ class ExpansesIncomeRow extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<ExpansesIncomeRow> createState() => _ExpansesIncomeRowState();
-}
-
-class _ExpansesIncomeRowState extends State<ExpansesIncomeRow> {
-  @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          widget.onCheck = !widget.onCheck;
-        });
-      },
-      child: SizedBox(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Image.asset(widget.assetsText, width: 25.w, height: 25.w),
-                SizedBox(
-                  width: 9.w,
+    return SizedBox(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Image.asset(assetsText, width: 25.w, height: 25.w),
+              SizedBox(
+                width: 9.w,
+              ),
+              Text(
+                text,
+                style: AppTextStyles.body15w5.copyWith(
+                  color: AppColors.black,
                 ),
-                Text(
-                  widget.text,
-                  style: AppTextStyles.body15w5.copyWith(
-                    color: AppColors.black,
-                  ),
-                ),
-              ],
-            ),
-            Checkbox(
-              value: widget.onCheck,
-              activeColor: Colors.transparent,
-              checkColor: AppColors.blue,
-              fillColor: const MaterialStatePropertyAll(Colors.transparent),
-              onChanged: (value) {
-                setState(() {
-                  widget.onCheck = !widget.onCheck;
-                });
-              },
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+          onCheck ? const Icon(Icons.check) : const SizedBox.shrink()
+        ],
       ),
     );
   }
