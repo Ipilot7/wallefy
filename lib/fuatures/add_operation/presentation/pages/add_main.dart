@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/app_text_style.dart';
 import 'package:wallefy/common/assets.dart';
+import 'package:wallefy/fuatures/add_operation/data/data_sources/expenses_income_models_list.dart';
+import 'package:wallefy/fuatures/add_operation/presentation/pages/add_done.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/widgets/category_date_currency.dart';
 
 import '../widgets/add_main_expenses_incom.dart';
@@ -18,6 +20,12 @@ class AddMainScreen extends StatefulWidget {
 
 class _AddMainScreenState extends State<AddMainScreen> {
   TextEditingController controller = TextEditingController();
+  late String category;
+  late String date;
+  late String currency;
+
+  int onTap = 3;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,25 +89,54 @@ class _AddMainScreenState extends State<AddMainScreen> {
             SizedBox(
               height: 11.h,
             ),
-            Row(
-              children: [
-                Expanded(
+            GridView.builder(
+              shrinkWrap: true,
+              itemCount: LocalDataSource().expensesIncomModelList.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 0.w,
+                crossAxisSpacing: 10.w,
+                childAspectRatio: 182.w / 92.w,
+              ),
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    if (onTap == index) {
+                    } else {
+                      setState(() {
+                        onTap = index;
+                      });
+                    }
+                  },
                   child: AddMainExpensesIncomeWidget(
-                    assetsText: Assets.icons.arrowTop,
-                    text: "Expenses",
+                    assetsText: LocalDataSource().expensesIncomModelList[index].imageAssetsText,
+                    text: LocalDataSource().expensesIncomModelList[index].text,
+                    fillColor: colorFunc(index, onTap),
                   ),
-                ),
-                SizedBox(
-                  width: 10.w,
-                ),
-                Expanded(
-                  child: AddMainExpensesIncomeWidget(
-                    assetsText: Assets.icons.arrowDown,
-                    text: "Income",
-                  ),
-                ),
-              ],
+                );
+              },
             ),
+            // Row(
+            //   children: [
+            //     Expanded(
+            //       child: AddMainExpensesIncomeWidget(
+            //         assetsText: Assets.icons.arrowTop,
+            //         text: "Expenses",
+            //         fillColor: AppColors.red,
+            //       ),
+            //     ),
+            //     SizedBox(
+            //       width: 10.w,
+            //     ),
+            //     Expanded(
+            //       child: AddMainExpensesIncomeWidget(
+            //         assetsText: Assets.icons.arrowDown,
+            //         text: "Income",
+            //         fillColor: AppColors.green,
+            //       ),
+            //     ),
+            //   ],
+            // ),
             SizedBox(
               height: 11.h,
             ),
@@ -141,7 +178,16 @@ class _AddMainScreenState extends State<AddMainScreen> {
               height: 31.h,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const AddDone();
+                    },
+                  ),
+                );
+              },
               child: Container(
                 height: 60.h,
                 width: 374.w,
@@ -165,5 +211,16 @@ class _AddMainScreenState extends State<AddMainScreen> {
         ),
       ),
     );
+  }
+
+  Color colorFunc(int index, int onTap) {
+    if (onTap == index) {
+      if (index == 0) {
+        return AppColors.red;
+      } else {
+        return AppColors.green;
+      }
+    }
+    return Colors.transparent;
   }
 }

@@ -7,7 +7,6 @@ import 'package:wallefy/fuatures/add_operation/presentation/widgets/expanses_inc
 import 'package:wallefy/fuatures/home/data/data_sources/actions_local_data_source.dart';
 
 class ExpensesPage extends StatelessWidget {
-  
   const ExpensesPage({super.key});
 
   @override
@@ -19,8 +18,7 @@ class ExpensesPage extends StatelessWidget {
         margin: EdgeInsets.only(top: 40.h),
         padding: EdgeInsets.symmetric(
           horizontal: 15.w,
-          vertical: 22.h,
-        ),
+        ).copyWith(bottom: 20.h),
         width: double.infinity,
         decoration: BoxDecoration(
           color: AppColors.white,

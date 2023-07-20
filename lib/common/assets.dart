@@ -118,6 +118,8 @@ class _Images extends _AssetsHolder {
   String get budget => "$basePath/budget.png";
 
   String get japan => "$basePath/bitmap_japan.png";
+
+  String get wellDone => "$basePath/well_done_svg.svg";
 }
 
 class _Lottie extends _AssetsHolder {

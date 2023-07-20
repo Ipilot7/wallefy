@@ -29,11 +29,16 @@ class _CurrencyPageState extends State<CurrencyPage> {
           ),
         ),
         centerTitle: true,
-        leading: SvgPicture.asset(
-          Assets.icons.arrowBack,
-          width: 44.w,
-          height: 44.w,
-          fit: BoxFit.scaleDown,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: SvgPicture.asset(
+            Assets.icons.arrowBack,
+            width: 44.w,
+            height: 44.w,
+            fit: BoxFit.scaleDown,
+          ),
         ),
       ),
       body: Column(
@@ -52,6 +57,8 @@ class _CurrencyPageState extends State<CurrencyPage> {
 // ignore: must_be_immutable
 class CurrencySelectWidget extends StatelessWidget {
   CurrencySelectWidget({super.key});
+
+  int onTap = 5;
 
   List<String> currencyList = [
     "United States Dollar (USD \$)",
@@ -73,9 +80,12 @@ class CurrencySelectWidget extends StatelessWidget {
       child: ListView.separated(
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          return ExpansesIncomeRow(
-            assetsText: Assets.images.japan,
-            text: currencyList[index],
+          return InkWell(
+            onTap: () {},
+            child: ExpansesIncomeRow(
+              assetsText: Assets.images.japan,
+              text: currencyList[index],
+            ),
           );
         },
         separatorBuilder: (context, index) {

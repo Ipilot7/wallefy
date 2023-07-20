@@ -49,6 +49,9 @@ class _ExpansesIncomeRowState extends State<ExpansesIncomeRow> {
             ),
             Checkbox(
               value: widget.onCheck,
+              activeColor: Colors.transparent,
+              checkColor: AppColors.blue,
+              fillColor: const MaterialStatePropertyAll(Colors.transparent),
               onChanged: (value) {
                 setState(() {
                   widget.onCheck = !widget.onCheck;

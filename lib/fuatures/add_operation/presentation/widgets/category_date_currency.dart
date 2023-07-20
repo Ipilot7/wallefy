@@ -6,10 +6,17 @@ import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/app_text_style.dart';
 import 'package:wallefy/common/assets.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/pages/category_pages.dart';
+import 'package:wallefy/fuatures/add_operation/presentation/pages/currency_page.dart';
+import 'package:wallefy/fuatures/add_operation/presentation/widgets/birthday_dialog_widget.dart';
 
-class CategoryDateCurrencyWidget extends StatelessWidget {
+class CategoryDateCurrencyWidget extends StatefulWidget {
   const CategoryDateCurrencyWidget({super.key});
 
+  @override
+  State<CategoryDateCurrencyWidget> createState() => _CategoryDateCurrencyWidgetState();
+}
+
+class _CategoryDateCurrencyWidgetState extends State<CategoryDateCurrencyWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,7 +58,25 @@ class CategoryDateCurrencyWidget extends StatelessWidget {
           CategoryDateCurrency(
             mainText: "Date",
             elemenetText: "Thu 2 Sep",
-            function: () {},
+            function: () {
+              showModalBottomSheet<void>(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  isScrollControlled: true,
+                  backgroundColor: Colors.white,
+                  context: context,
+                  builder: (BuildContext contexta) {
+                    return BirthdayDialog(
+                      title: "person.birthday",
+                      selected: (date) {
+                        setState(() {
+                          date;
+                        });
+                      },
+                    );
+                  });
+            },
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 24.h),
@@ -63,7 +88,13 @@ class CategoryDateCurrencyWidget extends StatelessWidget {
           CategoryDateCurrency(
             mainText: "Currency",
             elemenetText: "US dollars",
-            function: () {},
+            function: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const CurrencyPage();
+                },
+              ));
+            },
           ),
         ],
       ),
