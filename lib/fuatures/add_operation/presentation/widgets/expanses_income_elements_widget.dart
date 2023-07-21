@@ -36,7 +36,13 @@ class ExpansesIncomeRow extends StatelessWidget {
               ),
             ],
           ),
-          onCheck ? const Icon(Icons.check) : const SizedBox.shrink()
+          onCheck
+              ? Icon(
+                  Icons.check,
+                  size: 20,
+                  color: AppColors.blue,
+                )
+              : const SizedBox.shrink()
         ],
       ),
     );

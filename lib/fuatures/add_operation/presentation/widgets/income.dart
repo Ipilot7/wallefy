@@ -4,8 +4,15 @@ import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/widgets/expanses_income_elements_widget.dart';
 import 'package:wallefy/fuatures/home/data/data_sources/actions_local_data_source.dart';
 
-class IncomePage extends StatelessWidget {
+class IncomePage extends StatefulWidget {
   const IncomePage({super.key});
+
+  @override
+  State<IncomePage> createState() => _IncomePageState();
+}
+
+class _IncomePageState extends State<IncomePage> {
+  int selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +23,7 @@ class IncomePage extends StatelessWidget {
         margin: EdgeInsets.only(top: 40.h),
         padding: EdgeInsets.symmetric(
           horizontal: 15.w,
-          vertical: 22.h,
-        ),
+        ).copyWith(bottom: 20.h),
         width: double.infinity,
         decoration: BoxDecoration(
           color: AppColors.white,
@@ -35,21 +41,32 @@ class IncomePage extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             if (index < actionsListMore.length) {
-              return ExpansesIncomeRow(
-                assetsText: actionsListMore[index].actionImage,
-                text: actionsListMore[index].actionTitle,
+              return InkWell(
+                onTap: () {
+                  setState(() {
+                    selectedIndex = index;
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.only(top: index == 0 ? 0 : 20.h, bottom: 20.h),
+                  child: ExpansesIncomeRow(
+                    onCheck: selectedIndex == index,
+                    assetsText: actionsListMore[index].actionImage,
+                    text: actionsListMore[index].actionTitle,
+                  ),
+                ),
               );
             } else {
-              return const OtherElementsWidget();
+              return Container(
+                padding: EdgeInsets.only(top: 20.h),
+                child: const OtherElementsWidget(),
+              );
             }
           },
           separatorBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.h),
-              child: Divider(
-                color: AppColors.grey,
-                height: 1.h,
-              ),
+            return Divider(
+              color: AppColors.grey,
+              height: 1.h,
             );
           },
           itemCount: actionsListMore.length + 1,

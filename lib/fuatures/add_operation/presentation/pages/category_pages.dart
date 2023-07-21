@@ -1,15 +1,22 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/app_text_style.dart';
 import 'package:wallefy/common/assets.dart';
+import 'package:wallefy/common/constants.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/widgets/bottom_nav_bar.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/widgets/expenses.dart';
 import 'package:wallefy/fuatures/add_operation/presentation/widgets/income.dart';
 
 class CategoryPage extends StatefulWidget {
-  const CategoryPage({super.key});
+  int onTap;
+  CategoryPage({
+    Key? key,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   State<CategoryPage> createState() => _CategoryPageState();
@@ -22,21 +29,10 @@ class _CategoryPageState extends State<CategoryPage> {
     ExpensesPage(),
     IncomePage(),
   ];
-
-  int _selectedPage = 0;
   List<bool> indexes = [
     true,
     false,
   ];
-
-  void select(int index) {
-    indexes.clear();
-    indexes = List.generate(4, (i) => i == index);
-    setState(() {
-      _selectedPage = index;
-    });
-    controller.jumpToPage(_selectedPage);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +49,7 @@ class _CategoryPageState extends State<CategoryPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => pop(context),
                   child: SvgPicture.asset(
                     Assets.icons.arrowBack,
                   ),
@@ -82,12 +78,13 @@ class _CategoryPageState extends State<CategoryPage> {
                       children: _pages,
                     ),
                     BottomNavBar(
-                      selectedIndex: _selectedPage,
+                      selectedIndex: widget.onTap,
                       onTap: (index) {
-                        setState(() {
-                          _selectedPage = index;
-                          controller.jumpToPage(index);
-                        });
+                        if (widget.onTap == -1) {
+                          setState(() {
+                            widget.onTap = index;
+                          });
+                        }
                       },
                     ),
                   ],

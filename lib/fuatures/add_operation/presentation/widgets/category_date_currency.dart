@@ -1,7 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:wallefy/common/app_colors.dart';
 import 'package:wallefy/common/app_text_style.dart';
 import 'package:wallefy/common/assets.dart';
@@ -10,7 +12,12 @@ import 'package:wallefy/fuatures/add_operation/presentation/pages/currency_page.
 import 'package:wallefy/fuatures/add_operation/presentation/widgets/birthday_dialog_widget.dart';
 
 class CategoryDateCurrencyWidget extends StatefulWidget {
-  const CategoryDateCurrencyWidget({super.key});
+  int onTap;
+
+  CategoryDateCurrencyWidget({
+    Key? key,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   State<CategoryDateCurrencyWidget> createState() => _CategoryDateCurrencyWidgetState();
@@ -42,7 +49,9 @@ class _CategoryDateCurrencyWidgetState extends State<CategoryDateCurrencyWidget>
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return const CategoryPage();
+                    return CategoryPage(
+                      onTap: widget.onTap,
+                    );
                   },
                 ),
               );

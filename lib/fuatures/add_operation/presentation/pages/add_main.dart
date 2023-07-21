@@ -92,70 +92,19 @@ class _AddMainScreenState extends State<AddMainScreen> {
               SizedBox(
                 height: 11.h,
               ),
-              // GridView.builder(
-              //   shrinkWrap: true,
-              //   itemCount: LocalDataSource().expensesIncomModelList.length,
-              //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              //     crossAxisCount: 2,
-              //     mainAxisSpacing: 0.w,
-              //     crossAxisSpacing: 10.w,
-              //     childAspectRatio: 182.w / 92.w,
-              //   ),
-              //   itemBuilder: (context, index) {
-              //     return InkWell(
-              //       onTap: () {
-              //         if (onTap == index) {
-              //         } else {
-              //           setState(() {
-              //             onTap = index;
-              //           });
-              //         }
-              //       },
-              //       child: AddMainExpensesIncomeWidget(
-              //         assetsText: LocalDataSource()
-              //             .expensesIncomModelList[index]
-              //             .imageAssetsText,
-              //         text:
-              //             LocalDataSource().expensesIncomModelList[index].text,
-              //         fillColor: colorFunc(index, onTap),
-              //       ),
-              //     );
-              //   },
-              // ),
-              // Row(
-              //   children: [
-              //     Expanded(
-              //       child: AddMainExpensesIncomeWidget(
-              //         assetsText: Assets.icons.arrowTop,
-              //         text: "Expenses",
-              //         fillColor: AppColors.red,
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 10.w,
-              //     ),
-              //     Expanded(
-              //       child: AddMainExpensesIncomeWidget(
-              //         assetsText: Assets.icons.arrowDown,
-              //         text: "Income",
-              //         fillColor: AppColors.green,
-              //       ),
-              //     ),
-              //   ],
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(
                   LocalDataSource.expensesIncomModelList.length,
                   (index) => InkWell(
                     onTap: () {
-                      onTap = index;
+                      setState(() {
+                        onTap = index;
+                      });
                     },
                     child: AddMainExpensesIncomeWidget(
-                      assetsText: LocalDataSource
-                          .expensesIncomModelList[index].imageAssetsText,
-                      text:
-                          LocalDataSource.expensesIncomModelList[index].text,
+                      assetsText: LocalDataSource.expensesIncomModelList[index].imageAssetsText,
+                      text: LocalDataSource.expensesIncomModelList[index].text,
                       fillColor: colorFunc(index, onTap),
                     ),
                   ),
@@ -165,7 +114,9 @@ class _AddMainScreenState extends State<AddMainScreen> {
               SizedBox(
                 height: 11.h,
               ),
-              const CategoryDateCurrencyWidget(),
+              CategoryDateCurrencyWidget(
+                onTap: onTap,
+              ),
               SizedBox(
                 height: 11.h,
               ),

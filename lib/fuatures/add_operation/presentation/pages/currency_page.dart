@@ -15,6 +15,14 @@ class CurrencyPage extends StatefulWidget {
 }
 
 class _CurrencyPageState extends State<CurrencyPage> {
+  int onTap = -1;
+
+  List<String> currencyList = [
+    "United States Dollar (USD \$)",
+    "Pound (RGP £)",
+    "Euro (EUR €)",
+    "Yen (JPY ¥)",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,63 +49,47 @@ class _CurrencyPageState extends State<CurrencyPage> {
           ),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 21.h,
+      body: Padding(
+        padding: EdgeInsets.only(top: 21.h),
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.w),
+          margin: EdgeInsets.symmetric(horizontal: 20.w),
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(14.r),
           ),
-          CurrencySelectWidget(),
-        ],
-      ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class CurrencySelectWidget extends StatelessWidget {
-  CurrencySelectWidget({super.key});
-
-  int onTap = 5;
-
-  List<String> currencyList = [
-    "United States Dollar (USD \$)",
-    "Pound (RGP £)",
-    "Euro (EUR €)",
-    "Yen (JPY ¥)",
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.w),
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(14.r),
-      ),
-      child: ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {},
-            child: ExpansesIncomeRow(
-              assetsText: Assets.images.japan,
-              text: currencyList[index],
-            ),
-          );
-        },
-        separatorBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.symmetric(vertical: 25.h),
-            child: Divider(
-              color: AppColors.grey,
-              height: 1.h,
-            ),
-          );
-        },
-        itemCount: currencyList.length,
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  setState(() {
+                    onTap = index;
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.only(
+                    top: index == 0 ? 10.h : 25.h,
+                    bottom: index == currencyList.length - 1 ? 10.h : 25.h,
+                  ),
+                  child: ExpansesIncomeRow(
+                    onCheck: onTap == index,
+                    assetsText: Assets.images.japan,
+                    text: currencyList[index],
+                  ),
+                ),
+              );
+            },
+            separatorBuilder: (context, index) {
+              return Divider(
+                color: AppColors.grey,
+                height: 1.h,
+              );
+            },
+            itemCount: currencyList.length,
+          ),
+        ),
       ),
     );
   }

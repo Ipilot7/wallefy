@@ -21,18 +21,16 @@ class AddMainExpensesIncomeWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<AddMainExpensesIncomeWidget> createState() =>
-      _AddMainExpensesIncomeWidgetState();
+  State<AddMainExpensesIncomeWidget> createState() => _AddMainExpensesIncomeWidgetState();
 }
 
-class _AddMainExpensesIncomeWidgetState
-    extends State<AddMainExpensesIncomeWidget> {
-
+class _AddMainExpensesIncomeWidgetState extends State<AddMainExpensesIncomeWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
       height: 92.w,
+      width: MediaQuery.of(context).size.width * 0.43,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(8.r),

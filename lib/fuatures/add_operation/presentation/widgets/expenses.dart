@@ -48,23 +48,26 @@ class _ExpensesPageState extends State<ExpensesPage> {
                     selectedIndex = index;
                   });
                 },
-                child: ExpansesIncomeRow(
-                  onCheck: selectedIndex == index,
-                  assetsText: actionsListMore[index].actionImage,
-                  text: actionsListMore[index].actionTitle,
+                child: Container(
+                  padding: EdgeInsets.only(top: index == 0 ? 0 : 20.h, bottom: 20.h),
+                  child: ExpansesIncomeRow(
+                    onCheck: selectedIndex == index,
+                    assetsText: actionsListMore[index].actionImage,
+                    text: actionsListMore[index].actionTitle,
+                  ),
                 ),
               );
             } else {
-              return const OtherElementsWidget();
+              return Container(
+                padding: EdgeInsets.only(top: 20.h),
+                child: const OtherElementsWidget(),
+              );
             }
           },
           separatorBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.h),
-              child: Divider(
-                color: AppColors.grey,
-                height: 1.h,
-              ),
+            return Divider(
+              color: AppColors.grey,
+              height: 1.h,
             );
           },
           itemCount: actionsListMore.length + 1,
