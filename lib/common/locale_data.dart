@@ -18,11 +18,11 @@ List<String> bottomIcons = [
 ];
 List<Widget> pages = [
   const HomePage(),
-  StatisticsPage(),
+  const StatisticsPage(),
   const Center(
     child: Text('Tips'),
   ),
-  ProfilePage()
+  const ProfilePage()
 ];
 final rdm = Random();
 final List<Map> stockChartData = [

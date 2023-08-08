@@ -8,4 +8,7 @@ class SpendingBreakDownModel {
       required this.amount,
       required this.image,
       required this.percentage});
+
+
+      
 }

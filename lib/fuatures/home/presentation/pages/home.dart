@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:wallefy/common/constants.dart';
 import 'package:wallefy/fuatures/profile/presentation/pages/profile.dart';
 

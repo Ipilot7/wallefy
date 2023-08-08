@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:wallefy/fuatures/statistics/precentation/widgets/custom_stock_chart.dart';
 
 import '../../../../common/all_constants.dart';
