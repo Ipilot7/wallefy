@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color white = Color(0xffffffff);
+  static const Color  white = Color(0xffffffff);
   static const Color black = Color(0xff181819);
   static Color backgroud = const Color(0xffF1F4FF);
   static Color blue = const Color(0xff472FC8);
@@ -11,6 +11,7 @@ class AppColors {
   static Color gridTextColor = const Color(0xffB9BACE);
   static const Color red = Color(0xffF33720);
   static Color unActiveButton = const Color(0xffB1B1BE);
+  static Color dropShadowColor = const Color(0xffE9E7F1);
   static Color green = const Color(0xff00BEA1);
   static Color calendarRangeColor = const Color(0xffF0F2FD);
   static Color grey2 = const Color(0xffD3CFEA);

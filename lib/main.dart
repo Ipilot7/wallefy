@@ -6,7 +6,7 @@ import 'package:wallefy/fuatures/main_page/presentation/pages/main_page.dart';
 import 'di/di.dart' as sl;
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   await sl.init();
   // isBoxOpen(HiveKey.tokenModel);
 
