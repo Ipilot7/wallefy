@@ -15,16 +15,10 @@ class AppConstants {
     // Assets.icons.widgetAdd,
     // Assets.icons.paper,
   ];
-  static List<String> menuName = [
-    'Kassa',
-    'Hisobotlar',
-    'Hodimlar',
-    'Mijozlar',
-    'Nasiyalar',
-    'Mahsulot qaytarish',
-    'Mahsulotlar',
-    'Mahsulotlar qoldig`i',
-    'Chiqim',
+  static List<String> allMembersConstatntsItems = [
+    "Week",
+    "Month",
+    "Year",
   ];
   static List<Widget> pages = [
     // CashPage.screen(),
